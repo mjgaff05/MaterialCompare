@@ -12,7 +12,7 @@ const NewMaterial = (props) => {
   };
 
   const editHandler = () => {
-    setIsEditing(true);
+    setIsEditing(false);
   };
 
   const cancelNewHandler = () => {
