@@ -1,0 +1,25 @@
+.dropdown {
+  color: white;
+  padding: 1rem 0rem;
+}
+
+.dropdown label {
+  font-weight: bold;
+  font-size: small;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown select {
+  font: inherit;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.dropdown__control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}

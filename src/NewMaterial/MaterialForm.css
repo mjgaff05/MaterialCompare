@@ -1,0 +1,41 @@
+.material-form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 100%;
+}
+
+.material-form__description {
+  font-size: larger;
+  color: aliceblue;
+  border-bottom: 3px solid #000000;
+  padding: 1rem;
+}
+
+.material-form__input {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.material-form__button {
+  margin: 1rem auto;
+}
+
+.material-form button {
+  margin: 0.5rem;
+}
+
+.material-form__input label {
+  font-weight: bold;
+  font-size: small;
+  color: aliceblue;
+  padding: 0.2rem;
+}
+
+.material-form__input input {
+  font: inherit;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
