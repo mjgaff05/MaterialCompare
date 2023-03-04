@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MaterialForm.css";
-import Button from "../UI/Button";
+import Button from "../../UI/Button";
 
 const MaterialForm = (props) => {
   const [enteredName, setEnteredName] = useState("");
