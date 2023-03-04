@@ -1,5 +1,5 @@
 import MaterialSelector from "./MaterialSelector/MaterialSelector";
-import NewMaterial from "./NewMaterial/NewMaterial";
+import NewMaterial from "./Materials/NewMaterial/NewMaterial";
 import React , {useState} from 'react';
 
 const DUMMY_DATA = [
