@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./MaterialForm.css";
+import classes from "./MaterialForm.module.css";
 import Button from "../../UI/Button";
 
 const MaterialForm = (props) => {
@@ -59,9 +59,12 @@ const MaterialForm = (props) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="material-form">
-        <div className="material-form__description">Enter the material information below to add its properties to the database.</div>
-        <div className="material-form__input">
+      <div className={classes["material-form"]}>
+        <div className={classes["material-form__description"]}>
+          Enter the material information below to add its properties to the
+          database.
+        </div>
+        <div className={classes["material-form__input"]}>
           <label>Name</label>
           <input
             type="text"
@@ -69,7 +72,7 @@ const MaterialForm = (props) => {
             onChange={nameChangeHandler}
           ></input>
         </div>
-        <div className="material-form__input">
+        <div className={classes["material-form__input"]}>
           <label>Family</label>
           <input
             type="text"
@@ -77,7 +80,7 @@ const MaterialForm = (props) => {
             onChange={familyChangeHandler}
           ></input>
         </div>
-        <div className="material-form__input">
+        <div className={classes["material-form__input"]}>
           <label>Yield</label>
           <input
             type="number"
@@ -85,7 +88,7 @@ const MaterialForm = (props) => {
             onChange={yieldChangeHandler}
           ></input>
         </div>
-        <div className="material-form__input">
+        <div className={classes["material-form__input"]}>
           <label>Tensile</label>
           <input
             type="number"
@@ -93,7 +96,7 @@ const MaterialForm = (props) => {
             onChange={tensileChangeHandler}
           ></input>
         </div>
-        <div className="material-form__input">
+        <div className={classes["material-form__input"]}>
           <label>Elongation</label>
           <input
             type="number"
@@ -101,7 +104,7 @@ const MaterialForm = (props) => {
             onChange={elongationChangeHandler}
           ></input>
         </div>
-        <div className="material-form__input">
+        <div className={classes["material-form__input"]}>
           <label>Density</label>
           <input
             type="number"
@@ -109,7 +112,7 @@ const MaterialForm = (props) => {
             onChange={densityChangeHandler}
           ></input>
         </div>
-        <div className="material-form__button">
+        <div className={classes["material-form__button"]}>
           <Button type="submit">Sumbit</Button>
           <Button onButtonClick={props.onCancelEdit}>Cancel</Button>
         </div>
