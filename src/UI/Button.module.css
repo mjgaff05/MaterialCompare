@@ -8,6 +8,7 @@
   border-radius: 6px;
   padding: 0.5rem 3rem;
   width: 100%;
+  max-width: 20rem;
   margin: auto;
 }
 .button:hover,
