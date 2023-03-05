@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import "./MaterialSelector.css";
+import classes from "./MaterialSelector.module.css";
+
 import AshbyPlot from "./AshbyPlot";
 import ChartFilters from "./ChartFilters";
 
@@ -39,7 +40,7 @@ const MaterialSelector = (props) => {
   }));
 
   return (
-    <div className="material-selector">
+    <div className={classes["material-selector"]}>
       <ChartFilters
         onChangeFilters={filterChangeHandler}
         filterOptions={DUMMY_PROPS}

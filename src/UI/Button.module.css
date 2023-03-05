@@ -6,10 +6,9 @@
   background-color: #000000;
   color: white;
   border-radius: 6px;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem;
   width: 100%;
   max-width: 20rem;
-  margin: auto;
 }
 .button:hover,
 .button:active {

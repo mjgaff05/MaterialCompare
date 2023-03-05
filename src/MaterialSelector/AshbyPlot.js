@@ -1,12 +1,12 @@
 import React from "react";
 import Plot from "react-plotly.js";
-import "./AshbyPlot.css";
+import classes from "./AshbyPlot.module.css";
 
 const AshbyPlot = (props) => {
   const colorArray = ["green", "blue", "black", "orange", "red"];
   return (
-    <div className="ashby-plot">
-      <div className="ashby-plot__plot">
+    <div className={classes["ashby-plot"]}>
+      <div className={classes["ashby-plot__plot"]}>
         <Plot
           data={props.data.map((set, index) => ({
             x: set.xData,
@@ -29,7 +29,7 @@ const AshbyPlot = (props) => {
             },
           }}
           useResizeHandler={true}
-          className='ashby-plot__plotly'
+          className={classes["ashby-plot__plotly"]}
           //config={{responsive: true}}
         />
       </div>

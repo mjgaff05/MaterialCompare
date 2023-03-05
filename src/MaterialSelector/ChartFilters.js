@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ChartFilters.css";
+import classes from "./ChartFilters.module.css";
 import Dropdown from "../UI/Dropdown";
 import Button from "../UI/Button";
 
@@ -42,8 +42,7 @@ const ChartFilters = (props) => {
   };
 
   return (
-    <div className="chart-filter">
-      
+    <div className={classes["chart-filter"]}>
       <Dropdown
         label="Choose the x-axis units:"
         list={props.filterOptions.matProps}
