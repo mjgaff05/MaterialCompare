@@ -36,8 +36,10 @@ const MaterialForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
+    const key = `${enteredName[0]}${enteredFamily[0]}_${Math.random(0)} `;
     const material = {
+      id: key,
+      key: key,
       name: enteredName,
       family: enteredFamily,
       yield: enteredYield,
@@ -45,6 +47,7 @@ const MaterialForm = (props) => {
       elongation: enteredElongation,
       density: enteredDensity,
     };
+    console.log(material);
     props.onSubmitNew(material);
 
     setEnteredName("");

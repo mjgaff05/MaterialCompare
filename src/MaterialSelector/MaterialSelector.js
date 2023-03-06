@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import classes from "./MaterialSelector.module.css";
-
+import MaterialsContext from "../store/materials-context";
 import AshbyPlot from "./AshbyPlot";
 import ChartFilters from "./ChartFilters";
 
 const MaterialSelector = (props) => {
-  const families = [...new Set(props.data.map((material) => material.family))];
+  const materialsCtx = useContext(MaterialsContext);
+  const matArray = materialsCtx.materials;
+
+  const families = [...new Set(matArray.map((material) => material.family))];
   const DUMMY_PROPS = {
     families: families,
     matProps: ["tensile", "yield", "elongation", "density"],
@@ -23,18 +26,18 @@ const MaterialSelector = (props) => {
   const filterChangeHandler = (filters) => {
     setChartFilters(filters);
     console.log(filters);
-    setXDataArray(props.data.map((material) => material[chartFilters.xProp]));
-    setYDataArray(props.data.map((material) => material[chartFilters.yProp]));
+    setXDataArray(matArray.map((material) => material[chartFilters.xProp]));
+    setYDataArray(matArray.map((material) => material[chartFilters.yProp]));
     console.log(xDataArray);
     console.log(yDataArray);
   };
 
   const dataArray = families.map((fam) => ({
     family: fam,
-    xData: props.data
+    xData: matArray
       .filter((data) => data.family === fam)
       .map((material) => material[chartFilters.xProp]),
-    yData: props.data
+    yData: matArray
       .filter((data) => data.family === fam)
       .map((material) => material[chartFilters.yProp]),
   }));

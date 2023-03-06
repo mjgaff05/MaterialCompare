@@ -10,9 +10,9 @@ const Dropdown = (props) => {
       <div className={classes["dropdown__control"]}>
         <label>{props.label}</label>
         <select value={props.selected} onChange={selectionHandler}>
-          <option value="">Choose an option</option>
-          {props.list.map((item) => (
-            <option value={item}>{item}</option>
+          <option key="" value="">Choose an option</option>
+          {props.list.map((item, index) => (
+            <option key={index} value={item}>{item}</option>
           ))}
         </select>
       </div>
