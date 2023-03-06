@@ -1,13 +1,16 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useContext } from "react";
 
 import Button from "../../UI/Button";
 import Modal from "../../UI/Modal";
 
 import classes from "./NewMaterial.module.css";
 import MaterialForm from "./MaterialForm";
+import MaterialsContext from "../../store/materials-context";
 
 const NewMaterial = (props) => {
   const [isEditingNew, setIsEditingNew] = useState(false);
+
+  const materialsCtx = useContext(MaterialsContext);
 
   const editNewHandler = () => {
     setIsEditingNew(true);
@@ -18,7 +21,8 @@ const NewMaterial = (props) => {
   };
 
   const newMaterialHandler = (material) => {
-    props.onSubmitNew(material);
+    //props.onSubmitNew(material);
+    materialsCtx.addMaterial(material);
   };
 
   return (

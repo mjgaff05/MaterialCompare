@@ -4,6 +4,8 @@ import classes from "./EditMaterial.module.css";
 import Button from "../../UI/Button";
 import Modal from "../../UI/Modal";
 
+import MaterialList from "./MaterialList";
+
 const EditMaterial = () => {
   const [isEditing, setIsEditing] = useState(false);
 
@@ -18,7 +20,7 @@ const EditMaterial = () => {
   return (
     <Fragment>
       <Button onButtonClick={editHandler}>Edit Material Data</Button>
-      {isEditing && <Modal onHide={cancelEditHandler}>Hello</Modal>}
+      {isEditing && <Modal onHide={cancelEditHandler}><MaterialList /></Modal>}
     </Fragment>
   );
 };
