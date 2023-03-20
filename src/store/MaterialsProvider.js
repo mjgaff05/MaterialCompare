@@ -115,6 +115,11 @@ const materialsReducer = (state, action) => {
     return { materials: updatedMaterials };
   }
   if (action.type === "EDIT") {
+    const someMaterials = state.materials.filter(
+      (material) => material.id !== action.material.id
+    );
+    const updatedMaterials = someMaterials.concat(action.material);
+    return { materials: updatedMaterials };
   }
   if (action.type === "REMOVE") {
     const updatedMaterials = state.materials.filter(
@@ -135,8 +140,8 @@ const MaterialsProvider = (props) => {
     dispatchMaterialsAction({ type: "ADD", material: material });
   };
 
-  const editMaterialHandler = (id) => {
-    dispatchMaterialsAction({ type: "EDIT", id: id });
+  const editMaterialHandler = (material) => {
+    dispatchMaterialsAction({ type: "EDIT", material: material });
   };
 
   const removeMaterialHandler = (id) => {
