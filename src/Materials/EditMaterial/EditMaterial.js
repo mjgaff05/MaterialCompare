@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react";
-import classes from "./EditMaterial.module.css";
 
 import Button from "../../UI/Button";
 import Modal from "../../UI/Modal";
@@ -36,12 +35,15 @@ const EditMaterial = () => {
       <Button onButtonClick={displayMatsHandler}>Edit Material Data</Button>
       {displayMaterials && !isEditing && (
         <Modal onHide={hideMatsHandler}>
-          <MaterialList onEdit={editHandler} onCancelEdit={cancelEditHandler} />
+          <MaterialList onEdit={editHandler} onHide={hideMatsHandler} />
         </Modal>
       )}
       {isEditing && (
         <Modal onHide={cancelEditHandler}>
-          <EditMaterialForm onHide={cancelEditHandler} matID={selectedMaterialID}/>
+          <EditMaterialForm
+            onHide={cancelEditHandler}
+            matID={selectedMaterialID}
+          />
         </Modal>
       )}
     </Fragment>
