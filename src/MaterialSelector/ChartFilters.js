@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./ChartFilters.module.css";
 import Dropdown from "../UI/Dropdown";
-import Button from "../UI/Button";
+import { Button, Grid } from "@mui/material";
 
 const ChartFilters = (props) => {
   const [selectedX, setSelectedX] = useState("");
@@ -43,26 +43,48 @@ const ChartFilters = (props) => {
 
   return (
     <div className={classes["chart-filter"]}>
-      <Dropdown
-        label="Choose the x-axis units:"
-        list={props.filterOptions.matProps}
-        selected={selectedX}
-        onSelect={xPropChangeHandler}
-      />
-      <Dropdown
-        label="Choose the y-axis units:"
-        list={props.filterOptions.matProps}
-        selected={selectedY}
-        onSelect={yPropChangeHandler}
-      />
-      <Dropdown
-        label="(Optional) Choose a material family:"
-        list={props.filterOptions.families}
-        onSelect={familyChangeHandler}
-        selected={selectedFamily}
-      />
-      <Button onButtonClick={updateProps}>Update</Button>
-      <Button onButtonClick={clearProps}>Clear</Button>
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        justifyContent="center"
+        alignItems="stretch"
+      >
+        <Dropdown
+          label="Choose the x-axis units:"
+          list={props.filterOptions.matProps}
+          selected={selectedX}
+          onSelect={xPropChangeHandler}
+        />
+        <Dropdown
+          label="Choose the y-axis units:"
+          list={props.filterOptions.matProps}
+          selected={selectedY}
+          onSelect={yPropChangeHandler}
+        />
+        <Dropdown
+          label="(Optional) Choose a material family:"
+          list={props.filterOptions.families}
+          onSelect={familyChangeHandler}
+          selected={selectedFamily}
+        />
+        <Button
+          color="button"
+          variant="contained"
+          onClick={updateProps}
+          className={classes["chart-filter__Button"]}
+        >
+          Update
+        </Button>
+        <Button
+          color="button"
+          variant="contained"
+          onClick={clearProps}
+          className={classes["chart-filter__Button"]}
+        >
+          Clear
+        </Button>
+      </Grid>
     </div>
   );
 };

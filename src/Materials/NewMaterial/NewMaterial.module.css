@@ -1,28 +1,13 @@
 .new-material {
-  background-color: midnightblue;
+  background-color: #7D9D9C;
   width: 90%;
   margin: 1.5rem auto;
   border-radius: 12px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.new-material__control {
-  display: flex;
-  flex-direction: row;
+.new-material__Button {
   width: 100%;
-}
-
-.new-material__newButton {
-  padding: 1rem;
-  margin: 1rem auto ;
-}
-
-.new-material__editButton {
-  padding: 1rem;
-  margin: 1rem auto;
-}
-
-.new-material__form {
-  width: 100%;
+  max-width: 20rem;
 }

@@ -1,0 +1,23 @@
+.new-material-form {
+  background-color: #576F72;
+  border-radius: 0.5rem;
+}
+
+.material-form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 100%;
+}
+
+.material-form__control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.material-form__input {
+  width: 100%;
+  padding: 0.5rem 0rem;
+}
