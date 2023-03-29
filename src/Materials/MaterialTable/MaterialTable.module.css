@@ -1,0 +1,14 @@
+.material-table {
+    background-color: #7D9D9C;
+    width: 90%;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .material-table__Button {
+    width: 30%;
+    max-width: 8rem;
+    margin: 0.5rem;
+  }

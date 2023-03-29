@@ -1,8 +1,12 @@
 .material-selector {
-  background-color: midnightblue;
+  background-color: #7D9D9C;
   width: 90%;
   margin: 1.5rem auto;
   border-radius: 12px;
   display: flex;
   flex-direction: row;
+}
+
+.material-selector__control {
+  margin: auto;
 }

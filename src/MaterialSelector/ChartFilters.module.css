@@ -1,6 +1,6 @@
 .chart-filter {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0rem 2rem 1rem;
+  margin: auto;
   width: 20%;
 }
