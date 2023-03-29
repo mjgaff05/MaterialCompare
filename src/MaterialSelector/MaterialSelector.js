@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import classes from "./MaterialSelector.module.css";
-
+import MaterialsContext from "../store/materials-context";
 import AshbyPlot from "./AshbyPlot";
 import ChartFilters from "./ChartFilters";
+import { Grid } from "@mui/material";
 
 const MaterialSelector = (props) => {
-  const families = [...new Set(props.data.map((material) => material.family))];
-  const DUMMY_PROPS = {
-    families: families,
-    matProps: ["tensile", "yield", "elongation", "density"],
+  const materialsCtx = useContext(MaterialsContext);
+
+  const filterOptions = {
+    families: materialsCtx.families,
+    matProps: materialsCtx.properties,
   };
 
   const [chartFilters, setChartFilters] = useState({
@@ -17,35 +19,46 @@ const MaterialSelector = (props) => {
     yProp: "",
     family: "",
   });
-  const [xDataArray, setXDataArray] = useState([0]);
-  const [yDataArray, setYDataArray] = useState([0]);
 
   const filterChangeHandler = (filters) => {
     setChartFilters(filters);
-    console.log(filters);
-    setXDataArray(props.data.map((material) => material[chartFilters.xProp]));
-    setYDataArray(props.data.map((material) => material[chartFilters.yProp]));
-    console.log(xDataArray);
-    console.log(yDataArray);
   };
 
-  const dataArray = families.map((fam) => ({
+  const dataArray = materialsCtx.families.map((fam) => ({
     family: fam,
-    xData: props.data
+    xData: materialsCtx.materials
       .filter((data) => data.family === fam)
-      .map((material) => material[chartFilters.xProp]),
-    yData: props.data
+      .map((material) => material.data[chartFilters.xProp]),
+    yData: materialsCtx.materials
       .filter((data) => data.family === fam)
-      .map((material) => material[chartFilters.yProp]),
+      .map((material) => material.data[chartFilters.yProp]),
+    name: materialsCtx.materials
+    .filter((data) => data.family === fam)
+    .map((material) => material.name),
   }));
+
+  //console.log(dataArray);
+
+  const logMaterials = () => {
+    console.log(materialsCtx);
+  };
 
   return (
     <div className={classes["material-selector"]}>
-      <ChartFilters
-        onChangeFilters={filterChangeHandler}
-        filterOptions={DUMMY_PROPS}
-      />
-      <AshbyPlot filters={chartFilters} data={dataArray} />
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="stretch"
+      >
+        <ChartFilters
+          className={classes["material-selector__control"]}
+          onChangeFilters={filterChangeHandler}
+          filterOptions={filterOptions}
+        />
+        <AshbyPlot filters={chartFilters} data={dataArray} />
+        <button onClick={logMaterials}></button>
+      </Grid>
     </div>
   );
 };
