@@ -24,7 +24,7 @@ const MaterialTable = () => {
       ...propDatas,
     };
   });
-  console.log(matArray);
+  //console.log(matArray);
 
   const initialRows = [...matArray];
 

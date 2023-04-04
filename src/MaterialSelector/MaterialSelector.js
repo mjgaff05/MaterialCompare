@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 
 import classes from "./MaterialSelector.module.css";
 import MaterialsContext from "../store/materials-context";
@@ -33,8 +33,8 @@ const MaterialSelector = (props) => {
       .filter((data) => data.family === fam)
       .map((material) => material.data[chartFilters.yProp]),
     name: materialsCtx.materials
-    .filter((data) => data.family === fam)
-    .map((material) => material.name),
+      .filter((data) => data.family === fam)
+      .map((material) => material.name),
   }));
 
   //console.log(dataArray);

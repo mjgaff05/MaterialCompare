@@ -1,6 +1,12 @@
 import React, { useState, useContext } from "react";
 import classes from "./NewMaterialForm.module.css";
-import { Button, DialogActions, DialogTitle, MenuItem, TextField } from "@mui/material";
+import {
+  Button,
+  DialogActions,
+  DialogTitle,
+  MenuItem,
+  TextField,
+} from "@mui/material";
 import MaterialsContext from "../../store/materials-context";
 
 const MaterialForm = (props) => {
@@ -23,9 +29,13 @@ const MaterialForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    setNewMaterial((prev) => ({ ...prev, key: `material${Math.random(0)}`, id:  `material${Math.random(0)}`}));
-    props.onSubmitNew(newMaterial);
-
+    const addMat = {
+      ...newMaterial,
+      key: `material${Math.random(0)}`,
+      id: `material${Math.random(0)}`,
+    }
+    props.onSubmitNew(addMat);
+    console.log(addMat);
     setNewMaterial({ family: "" });
 
     props.onClose();

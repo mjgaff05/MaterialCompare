@@ -1,11 +1,10 @@
-import React, { useState, Fragment, useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import {
   Button,
   Dialog,
   DialogContent,
   Grid,
-  GridItem,
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
@@ -42,13 +41,13 @@ const NewMaterial = (props) => {
 
   return (
     <div className={classes["new-material"]}>
-      <Grid
-        container
-        m={6}
-        direction="column"
-        alignItems="center"
-      >
-        <Button color="button" variant="contained" onClick={handleClickOpen} className={classes["new-material__Button"]}>
+      <Grid container m={6} direction="column" alignItems="center">
+        <Button
+          color="button"
+          variant="contained"
+          onClick={handleClickOpen}
+          className={classes["new-material__Button"]}
+        >
           New Material
         </Button>
       </Grid>
